@@ -1,0 +1,163 @@
+/* mediaqueries.css */
+
+/* Tablet Landscape / Smaller Desktops (1400px and below) */
+@media screen and (max-width: 1400px){
+    #profile {
+        height: 83vh;
+        margin-bottom: 6rem;
+    }
+    .about-containers{
+        /* On screens up to 1400px, let the two main skill boxes wrap if they need to */
+        flex-wrap: wrap;
+    }
+    #projects .about-containers {
+        flex-wrap: wrap;
+    }
+}
+
+/* Tablet Portrait / Larger Mobile Landscape (1200px and below) */
+@media screen and (max-width: 1200px){
+    #desktop-nav {
+        display: none;
+    }
+    #hamburger-nav {
+        display: flex;
+    }
+    #skills, .skills-details-container{
+        margin-top: 2rem;
+    }
+    #profile, .section-container{
+        display: block; /* Changes section-container from flex to block for general layout */
+    }
+    .arrow{
+        display: none; /* Hides arrows on smaller screens to simplify layout */
+    }
+    .section, .section-container{
+        height: fit-content;
+    }
+    section{
+        margin: 0 5%;
+    }
+    .section__pic-container{
+        width: 275px;
+        height: 275px;
+        margin: 0 auto 2rem;
+    }
+    .about-containers{
+        margin-top: 0;
+    }
+
+    /* Important for 1200px and below: Stack the TWO main details-containers (Frontend & Programming Languages) */
+    .about-containers {
+        flex-direction: column;
+        align-items: center; 
+    }
+
+
+    .details-container {
+        width: 90%; /* Make details containers take more width on smaller desktop/tablet */
+        max-width: 500px; /* Prevent them from becoming too wide on larger tablets */
+        margin-bottom: 1rem; /* Space between stacked details containers */
+    }
+
+    /* The articles within .article-container should remain ROW here, because .article-container's
+       default is already row, and we're not overriding it at this breakpoint. */
+}
+
+/* Tablet portrait (768px to 1024px) */
+/* This media query covers the range from 768px up to (but not including) 1200px */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .article-container {
+        flex-direction: row; /* Ensure they remain side-by-side */
+        flex-wrap: wrap; /* Allow them to wrap to next line if needed */
+        justify-content: center; /* Center them horizontally within the box */
+        gap: 1rem; /* Adjust gap for smaller row arrangement */
+    }
+    .details-container {
+        width: 90%; /* Ensure it's wide enough for two articles side-by-side */
+        max-width: 400px; 
+    }
+}
+
+
+/* Mobile and Smaller Tablets (767px and below) */
+@media screen and (max-width: 767px) { /* Changed from 600px to 767px for consistency */
+    #contact, footer{
+        height: auto;
+        padding-bottom: 2rem;
+    }
+    #profile{
+        height: auto;
+        margin-bottom: 0;
+    }
+    article{
+        font-size: 1rem;
+        width: 90%; /* Let articles take more width on tiny screens */
+        justify-content: flex-start; /* Align checkmark and text to start */
+    }
+    article div {
+        white-space: nowrap;
+    }
+    footer nav{
+        height: fit-content;
+        margin-bottom: 2rem;
+    }
+    .about-containers, .contact-info-upper-container, .btn-container{
+        flex-wrap: wrap;
+        flex-direction: column; /* Force stack for these as well on mobile */
+        align-items: center;
+    }
+    .contact-info-container{
+        margin: 0.5rem 0;
+        flex-direction: column; /* Stack icon and text for contact info */
+        text-align: center;
+    }
+    .contact-info-container p,.nav-links li a{
+        font-size: 1rem;
+    }
+    .skills-sub-title{
+        font-size: 1.25rem;
+    }
+    .logo{
+        font-size: 1.5rem;
+    }
+    .nav-links{
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    .section__pic-container{
+        width: auto;
+        height: 40vh;
+        justify-content: center;
+        margin: 0 auto 1rem;
+    }
+    .section__text__p2{
+        font-size: 1.25rem;
+    }
+    .title{
+        font-size: 2rem;
+    }
+    .text-container{
+        text-align: justify;
+    }
+    .btn-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn {
+        width: 100%;
+        max-width: 10rem;
+    }
+    .project-img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* THIS IS THE CRUCIAL CHANGE for mobile: Stack articles within containers */
+    .article-container {
+        flex-direction: column; /* Force articles to stack vertically on small screens */
+        align-items: center; /* Center them when stacked */
+        gap: 0.5rem; /* Smaller gap for stacked items */
+    }
+}
